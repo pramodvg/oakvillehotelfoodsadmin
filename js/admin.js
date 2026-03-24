@@ -9,9 +9,23 @@
     const ordersList = document.getElementById('ordersList');
     const orderCount = document.getElementById('orderCount');
     const toast = document.getElementById('toast');
+    const screensaverToggle = document.getElementById('screensaverToggle');
 
     let currentInput = '';
     const MAX_DIGITS = 4;
+
+    // ── Settings Toggle Logic ──
+    const settingsRef = database.ref('settings/forceOrderPage');
+
+    settingsRef.on('value', (snap) => {
+        screensaverToggle.checked = snap.val() || false;
+    });
+
+    screensaverToggle.addEventListener('change', (e) => {
+        settingsRef.set(e.target.checked)
+            .then(() => showToast('Display settings updated', 'success'))
+            .catch((err) => showToast('Failed to update settings', 'error'));
+    });
 
     // ── Keypad Logic ──
 
