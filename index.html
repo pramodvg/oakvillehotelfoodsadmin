@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Order Admin — Oakville Hotel Foods</title>
+    <meta name="description" content="Employee admin panel for managing Oakville Hotel Foods pickup orders.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-page">
+
+    <header class="admin-header">
+        <h1>🔧 Order Manager</h1>
+        <p>Add or remove orders from the pickup display</p>
+    </header>
+
+    <section class="input-section">
+        <div class="order-input-display">
+            <div id="numberDisplay" class="number-value">
+                <span class="placeholder">Enter #</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="keypad">
+        <button class="key-btn" data-digit="1">1</button>
+        <button class="key-btn" data-digit="2">2</button>
+        <button class="key-btn" data-digit="3">3</button>
+        <button class="key-btn" data-digit="4">4</button>
+        <button class="key-btn" data-digit="5">5</button>
+        <button class="key-btn" data-digit="6">6</button>
+        <button class="key-btn" data-digit="7">7</button>
+        <button class="key-btn" data-digit="8">8</button>
+        <button class="key-btn" data-digit="9">9</button>
+        <button class="key-btn clear" id="clearBtn">CLR</button>
+        <button class="key-btn zero" data-digit="0">0</button>
+        <button class="key-btn backspace" id="backspaceBtn">⌫</button>
+    </section>
+
+    <section class="action-buttons">
+        <button class="add-btn" id="addBtn" disabled>Add Order</button>
+    </section>
+
+    <section class="orders-section">
+        <h2>Active Orders <span class="order-count-badge" id="orderCount">0</span></h2>
+        <div id="ordersList" class="active-orders-list">
+            <div class="admin-empty">
+                <div class="admin-empty-icon">📋</div>
+                <p>No active orders</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
